@@ -18,7 +18,7 @@ const enterpriseSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate:{
-      validator: (v) => /(^[0-9]+-{1}[0-9]{1})/.test(v),
+      validator: (v) => /(^[0-9]{9}-{1}[0-9]{1}$)/.test(v),
       message: 'No es un valor NIT válido'
     }
   },
