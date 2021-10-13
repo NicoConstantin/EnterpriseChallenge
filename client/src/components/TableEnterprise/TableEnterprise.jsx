@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ENDPOINT_ENTERPRISE } from "../../utils/constants";
 import { FiSettings } from "react-icons/fi";
 import actionsUponEnterprises from "../../utils/functions/actionsUponEnterprises";
+import "./TableEnterprise.scss"
 
 
 export default function TableEnterprise ({ setFlag, setData }) {
@@ -16,9 +17,9 @@ export default function TableEnterprise ({ setFlag, setData }) {
     },[])
 
     return (
-        <div>
-            <table>
-                <tr>
+        <div className="w-full mx-auto flex items-center justify-center">
+            <table className="content-table-enterprise sm:shadow-detail-header w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 mx-auto">
+                <tr className= "enterprise-rows text-lg font-bold ">
                     <th></th>
                     <th>Nombre</th>
                     <th>Dirección</th>
@@ -27,8 +28,8 @@ export default function TableEnterprise ({ setFlag, setData }) {
                 </tr>
                 {enterprises?.map(e=>{
                     return (
-                        <tr>
-                            <th><FiSettings onClick={()=>actionsUponEnterprises(e, setFlag, setData)}/></th>
+                        <tr className= "enterprise-rows">
+                            <th><FiSettings onClick={()=>actionsUponEnterprises(e, setFlag, setData)} className="cursor-pointer"/></th>
                             <th>{e.name}</th>
                             <th>{e.address}</th>
                             <th>{e.NIT}</th>
